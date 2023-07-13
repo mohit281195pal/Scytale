@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mynavig"
+    app:startDestination="@id/SignupFragment">
+
+    <fragment
+        android:id="@+id/MessageFragment"
+        android:name="com.example.Scytale.userDetails.MessgaeFragment"
+        android:label="MessageFragment">
+        <action
+            android:id="@+id/action_message_to_signup"
+            app:destination="@id/SignupFragment">
+            <argument
+                android:name="details"
+                app:argType="string"
+                android:defaultValue=""/>
+        </action>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/SignupFragment"
+        android:name="com.example.scytaletest.register.SignupFragment"
+        android:label="Signupfragment"
+        >
+        <action
+            android:id="@+id/action_signup_to_message"
+            app:destination="@id/MessageFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.scytaletest.userDetails.UserDetailsFragment">
+
+    <data>
+
+        <variable
+            name="userDelailsLayout"
+            type="com.example.scytaletest.userDetails.MessageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->userDelailsLayout.backButtonclicked()}"
+            android:text="Back"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/messageTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Type a Message"
+            android:inputType="textPersonName"
+
+            android:text="@={userDelailsLayout.inputMessage}"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/messageButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/messageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="@{()->userDelailsLayout.sendMessage()}"
+            android:text="Send"
+
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/messageTextField" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/messageRecyclerView"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/backButton"
+            app:layout_constraintBottom_toTopOf="@id/messageTextField"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
